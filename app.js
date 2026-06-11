@@ -358,6 +358,7 @@ function renderSemesters() {
     controls.className = "semester-controls";
     
     const deleteSemBtn = document.createElement("button");
+    deleteSemBtn.type = "button";
     deleteSemBtn.className = "btn btn-danger btn-icon-only";
     deleteSemBtn.setAttribute("aria-label", "Delete Semester");
     deleteSemBtn.innerHTML = `
@@ -465,6 +466,7 @@ function renderSemesters() {
       creditsCol.appendChild(creditsInp);
       
       const deleteCol = document.createElement("button");
+      deleteCol.type = "button";
       deleteCol.className = "delete-course-btn";
       deleteCol.setAttribute("aria-label", "Remove Course");
       deleteCol.innerHTML = `
@@ -494,6 +496,7 @@ function renderSemesters() {
     leftFooter.style.gap = "1rem";
     
     const addCourseBtn = document.createElement("button");
+    addCourseBtn.type = "button";
     addCourseBtn.className = "btn btn-secondary";
     addCourseBtn.innerHTML = `+ Add Course`;
     addCourseBtn.addEventListener("click", () => addNewCourse(sem.id));
@@ -509,6 +512,7 @@ function renderSemesters() {
     genInp.className = "text-input";
     
     const genBtn = document.createElement("button");
+    genBtn.type = "button";
     genBtn.className = "btn btn-secondary";
     genBtn.textContent = "Generate Rows";
     genBtn.addEventListener("click", () => {
@@ -609,9 +613,19 @@ function toggleSemesterCollapse(semesterId) {
 
 function deleteSemester(semesterId) {
   if (confirm("Are you sure you want to delete this entire semester?")) {
-    state.semesters = state.semesters.filter(s => s.id !== semesterId);
-    saveState();
-    renderApp();
+    const card = document.querySelector(`.semester-card[data-id="${semesterId}"]`);
+    if (card) {
+      card.classList.add("slide-out");
+      card.addEventListener("animationend", () => {
+        state.semesters = state.semesters.filter(s => s.id !== semesterId);
+        saveState();
+        renderApp();
+      });
+    } else {
+      state.semesters = state.semesters.filter(s => s.id !== semesterId);
+      saveState();
+      renderApp();
+    }
   }
 }
 
@@ -658,13 +672,27 @@ function generateCourseRows(semesterId, count) {
 }
 
 function deleteCourse(semesterId, courseId) {
-  const sem = state.semesters.find(s => s.id === semesterId);
-  if (!sem) return;
-  
-  sem.courses = sem.courses.filter(c => c.id !== courseId);
-  saveState();
-  renderSemesters();
-  updateDashboardOverview();
+  const row = document.querySelector(`.semester-card[data-id="${semesterId}"] .course-row[data-course-id="${courseId}"]`);
+  if (row) {
+    row.classList.add("slide-out");
+    row.addEventListener("animationend", () => {
+      const sem = state.semesters.find(s => s.id === semesterId);
+      if (sem) {
+        sem.courses = sem.courses.filter(c => c.id !== courseId);
+        saveState();
+        renderSemesters();
+        updateDashboardOverview();
+      }
+    });
+  } else {
+    const sem = state.semesters.find(s => s.id === semesterId);
+    if (sem) {
+      sem.courses = sem.courses.filter(c => c.id !== courseId);
+      saveState();
+      renderSemesters();
+      updateDashboardOverview();
+    }
+  }
 }
 
 function drawTrendChart(semesterStats) {
@@ -1014,6 +1042,7 @@ function renderModalMappings() {
     });
     
     const delBtn = document.createElement("button");
+    delBtn.type = "button";
     delBtn.className = "delete-course-btn";
     delBtn.innerHTML = "&times;";
     delBtn.addEventListener("click", () => {
