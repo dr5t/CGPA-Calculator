@@ -81,7 +81,12 @@
 
 html {
   scroll-behavior: smooth;
-  scrollbar-gutter: stable;
+}
+
+@supports (scrollbar-gutter: stable) {
+  html {
+    scrollbar-gutter: stable;
+  }
 }
 
 body {
@@ -97,9 +102,11 @@ body {
   flex-direction: column;
 }
 
-body, .scrollable-container {
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+@supports (scrollbar-width: auto) or (scrollbar-color: auto) {
+  body, .scrollable-container {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  }
 }
 
 @supports not (scrollbar-color: auto) {
@@ -128,8 +135,8 @@ header {
   align-items: center;
   padding: 1.25rem 2rem;
   background: var(--bg-card);
-  backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
   border-bottom: 1px solid var(--border-card);
   position: sticky;
   top: 0;
@@ -311,8 +318,8 @@ header {
 
 .card {
   background: var(--bg-card);
-  backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
@@ -799,8 +806,8 @@ header {
   right: 0;
   bottom: 0;
   background: rgba(15, 23, 42, 0.5);
-  backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
