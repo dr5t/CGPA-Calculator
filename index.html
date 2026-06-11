@@ -165,7 +165,7 @@
             Target CGPA Planner
           </div>
         </div>
-        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+        <p>
           Calculate what GPA you need in your future semesters to hit a target cumulative CGPA.
         </p>
         <form id="whatIfForm" class="what-if-form" onsubmit="return false;">
@@ -177,12 +177,12 @@
             <label class="course-label" for="remainingCreditsInput">Remaining Credits</label>
             <input id="remainingCreditsInput" class="text-input" type="number" step="0.5" min="0.5" placeholder="e.g. 45" required>
           </div>
-          <div class="course-input-group" style="justify-content: flex-end;">
-            <button id="calculateGoalBtn" class="btn btn-primary" style="width: 100%;">Calculate Target</button>
+          <div class="course-input-group input-align-end">
+            <button id="calculateGoalBtn" class="btn btn-primary btn-full">Calculate Target</button>
           </div>
         </form>
         
-        <div id="goalResult" style="display: none;"></div>
+        <div id="goalResult" class="hidden"></div>
       </section>
 
       <section class="utility-actions-bar">
@@ -210,7 +210,7 @@
           </svg>
           Import Backup
         </button>
-        <input type="file" id="importFileInput" style="display: none;" accept=".json">
+        <input type="file" id="importFileInput" class="hidden" accept=".json">
         <button id="resetAllBtn" class="btn btn-danger">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="3 6 5 6 21 6"></polyline>
