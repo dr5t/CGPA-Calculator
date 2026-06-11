@@ -36,7 +36,7 @@
     </div>
     
     <div class="header-controls">
-      <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+      <button type="button" id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
         <svg class="moon-icon" viewBox="0 0 24 24">
           <path d="M12.3 22h-.1c-5.5-.1-10-4.6-10-10.1c0-5.1 3.9-9.4 9-9.9c.5 0 1 .3 1.2.8c.2.5 0 1-.4 1.3c-2.4 1.8-3.8 4.7-3.8 7.7c0 4.1 3.2 7.5 7.2 7.7c.5 0 .9.4 1 1c.1.5-.2 1-.6 1.2c-1.1.8-2.3 1.3-3.5 1.3z" />
         </svg>
@@ -45,7 +45,7 @@
         </svg>
       </button>
       
-      <button id="addSemesterHeaderBtn" class="btn btn-primary">
+      <button type="button" id="addSemesterHeaderBtn" class="btn btn-primary">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <line x1="12" y1="5" x2="12" y2="19"></line>
           <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -126,12 +126,12 @@
               <option value="10.0">Standard 10.0 Scale (O, A+, A...)</option>
               <option value="percent">Percentage Scale (0 - 100%)</option>
             </select>
-            <button id="manageScalesBtn" class="btn btn-secondary btn-sm">
+            <button type="button" id="manageScalesBtn" class="btn btn-secondary btn-sm">
               Manage Scales
             </button>
           </div>
           <div class="config-group">
-            <button id="addSemesterBtn" class="btn btn-secondary">
+            <button type="button" id="addSemesterBtn" class="btn btn-secondary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="12" y1="5" x2="12" y2="19"></line>
                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -151,7 +151,7 @@
           </div>
           <h3 class="empty-state-title">No semesters added yet</h3>
           <p class="empty-state-desc">Begin your academic calculation by adding a semester and listing your completed courses.</p>
-          <button id="emptyStateAddBtn" class="btn btn-primary">Get Started</button>
+          <button type="button" id="emptyStateAddBtn" class="btn btn-primary">Get Started</button>
         </div>
       </section>
 
@@ -178,7 +178,7 @@
             <input id="remainingCreditsInput" class="text-input" type="number" step="0.5" min="0.5" placeholder="e.g. 45" required>
           </div>
           <div class="course-input-group input-align-end">
-            <button id="calculateGoalBtn" class="btn btn-primary btn-full">Calculate Target</button>
+            <button type="button" id="calculateGoalBtn" class="btn btn-primary btn-full">Calculate Target</button>
           </div>
         </form>
         
@@ -186,7 +186,7 @@
       </section>
 
       <section class="utility-actions-bar">
-        <button id="printBtn" class="btn btn-secondary">
+        <button type="button" id="printBtn" class="btn btn-secondary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="6 9 6 2 18 2 18 9"></polyline>
             <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
@@ -194,7 +194,7 @@
           </svg>
           Print Report
         </button>
-        <button id="exportBtn" class="btn btn-secondary">
+        <button type="button" id="exportBtn" class="btn btn-secondary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
@@ -202,7 +202,7 @@
           </svg>
           Export Backup (JSON)
         </button>
-        <button id="importBtn" class="btn btn-secondary">
+        <button type="button" id="importBtn" class="btn btn-secondary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="17 8 12 3 7 8"></polyline>
@@ -211,7 +211,7 @@
           Import Backup
         </button>
         <input type="file" id="importFileInput" class="hidden" accept=".json" aria-label="Import Backup File" title="Import Backup File">
-        <button id="resetAllBtn" class="btn btn-danger">
+        <button type="button" id="resetAllBtn" class="btn btn-danger">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="3 6 5 6 21 6"></polyline>
             <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -229,7 +229,7 @@
     <div class="modal-card">
       <div class="modal-title-bar">
         <h3>Manage Grading Scales</h3>
-        <button class="modal-close-btn" id="closeScalesModalBtn">&times;</button>
+        <button type="button" class="modal-close-btn" id="closeScalesModalBtn">&times;</button>
       </div>
       <div class="custom-scale-builder">
         <div class="course-input-group">
@@ -241,14 +241,14 @@
         <div id="scaleMappingsList" class="scale-mappings-list">
         </div>
         
-        <button id="addMappingRowBtn" class="btn btn-secondary">
+        <button type="button" id="addMappingRowBtn" class="btn btn-secondary">
           + Add Grade Symbol
         </button>
         
         <div class="modal-footer">
-          <button id="deleteCustomScalesBtn" class="btn btn-danger">Delete Scale</button>
-          <button id="cancelScaleBtn" class="btn btn-secondary">Cancel</button>
-          <button id="saveScaleBtn" class="btn btn-primary">Save Scale</button>
+          <button type="button" id="deleteCustomScalesBtn" class="btn btn-danger">Delete Scale</button>
+          <button type="button" id="cancelScaleBtn" class="btn btn-secondary">Cancel</button>
+          <button type="button" id="saveScaleBtn" class="btn btn-primary">Save Scale</button>
         </div>
       </div>
     </div>
