@@ -63,4 +63,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## 👤 Developer
 
-Developed with ❤️ by **Bhumika Rautela**.
+Developed with ❤️ by **Shaurya Tiwari**.
